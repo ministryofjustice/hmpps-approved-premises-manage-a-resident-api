@@ -1,10 +1,10 @@
 info.app:
-  name: HMPPS Template Kotlin
+  name: HMPPS Approved Premises Manage A Resident Api
   version: 1.0
 
 spring:
   application:
-    name: hmpps-template-kotlin
+    name: hmpps-approved-premises-manage-a-resident-api
 
   jackson:
     date-format: "yyyy-MM-dd HH:mm:ss"

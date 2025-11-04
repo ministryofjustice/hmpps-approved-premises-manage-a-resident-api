@@ -1,11 +1,11 @@
 version: "3"
 services:
-  hmpps-template-kotlin:
+  hmpps-approved-premises-manage-a-resident-api:
     build:
       context: .
     networks:
       - hmpps
-    container_name: hmpps-template-kotlin
+    container_name: hmpps-approved-premises-manage-a-resident-api
     ports:
       - "8080:8080"
     healthcheck:

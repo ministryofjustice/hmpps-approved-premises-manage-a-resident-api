@@ -34,7 +34,7 @@ class PlacementController(
       ),
     ],
   )
-  @PreAuthorize("hasRole('ROLE_PROBATION')")
+  // @PreAuthorize("hasRole('ROLE_PROBATION')")
   @GetMapping("/{crn}/profile/cas1/placements", produces = [MediaType.APPLICATION_JSON_VALUE])
   fun getPreviousApStays(
     @PathVariable crn: UUID,
@@ -56,7 +56,7 @@ class PlacementController(
       ),
     ],
   )
-  @PreAuthorize("hasRole('ROLE_PROBATION')")
+  // @PreAuthorize("hasRole('ROLE_PROBATION')")
   @GetMapping("/{crn}/profile/cas1/placements/{placementId}")
   fun getPersonPlacementProfile(
     @PathVariable crn: String,

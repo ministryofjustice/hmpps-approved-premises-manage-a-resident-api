@@ -25,4 +25,24 @@ class PlacementControllerTest : IntegrationTestBase() {
     assertThat(response[0].departureDate).isEqualTo(LocalDate.of(2024, 6, 20))
     assertThat(response[0].departureReason).isEqualTo("Planned move on")
   }
+
+  @Test
+  fun `GET person placement profile returns 200 with profile body`() {
+    val crn = "X123456"
+    val placementId = UUID.randomUUID()
+
+    webTestClient.get()
+      .uri("/person/$crn/profile/cas1/placements/$placementId")
+      .headers(setAuthorisation(roles = listOf("ROLE_PROBATION")))
+      .exchange()
+      .expectStatus().isOk
+      .expectBody()
+      .jsonPath("$.id").isEqualTo(placementId.toString())
+      .jsonPath("$.applicationId").isNotEmpty
+      .jsonPath("$.premisesName").isEqualTo("River View Approved Premises")
+      .jsonPath("$.expectedArrivalDate").isNotEmpty
+      .jsonPath("$.expectedDepartureDate").isNotEmpty
+      .jsonPath("$.canonicalArrivalDate").isNotEmpty
+      .jsonPath("$.canonicalDepartureDate").isNotEmpty
+  }
 }
